@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.solar.api</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+
+		<packaging>jar</packaging>
+		<properties>
+			<java.version>11</java.version>
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+			<spring-cloud.version>2020.0.0</spring-cloud.version>
+			<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		</properties>
+		<dependencies>
+
+
+			<dependency>
+				<groupId>org.eclipse.paho</groupId>
+				<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+				<version>1.2.5</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jdbc</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>1.5.9</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-core</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.ehcache</groupId>
+				<artifactId>ehcache</artifactId>
+			</dependency>
+
+			<!--  https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign  -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-openfeign</artifactId>
+				<version>3.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mattbertolini</groupId>
+				<artifactId>liquibase-slf4j</artifactId>
+				<version>4.0.0</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct</artifactId>
+				<version>${org.mapstruct.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+			</dependency>
+		</dependencies>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<!--				<configuration>-->
+					<!--					<excludes>-->
+					<!--						<exclude>-->
+					<!--							<groupId>org.projectlombok</groupId>-->
+					<!--							<artifactId>lombok</artifactId>-->
+					<!--						</exclude>-->
+					<!--					</excludes>-->
+					<!--				</configuration>-->
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>8</source>
+						<target>8</target>
+
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.18.20</version>
+							</path>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok-mapstruct-binding</artifactId>
+								<version>0.2.0</version>
+							</path>
+							<path>
+								<groupId>org.mapstruct</groupId>
+								<artifactId>mapstruct-processor</artifactId>
+								<version>${org.mapstruct.version}</version>
+							</path>
+						</annotationProcessorPaths>
+						<compilerArgs>
+							<compilerArg> -Amapstruct.defaultComponentModel=spring </compilerArg>
+						</compilerArgs>
+					</configuration>
+
+					<!--				<executions>-->
+					<!--					<execution>-->
+					<!--						<goals>-->
+					<!--							<goal>repackage</goal>-->
+					<!--						</goals>-->
+					<!--					</execution>-->
+					<!--				</executions>-->
+
+				</plugin>
+			</plugins>
+		</build>
+	</project>
+
+
+
+	<!--	<packaging>jar</packaging>-->
+<!--	<properties>-->
+<!--		<java.version>11</java.version>-->
+<!--		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+<!--		<spring-cloud.version>2020.0.0</spring-cloud.version>-->
+<!--		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>-->
+<!--	</properties>-->
+
+<!--	<dependencies>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter</artifactId>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.projectlombok</groupId>-->
+<!--			<artifactId>lombok</artifactId>-->
+<!--			<optional>true</optional>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springdoc</groupId>-->
+<!--			<artifactId>springdoc-openapi-ui</artifactId>-->
+<!--			<version>1.5.9</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>io.springfox</groupId>-->
+<!--			<artifactId>springfox-swagger2</artifactId>-->
+<!--			<version>3.0.0</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>io.springfox</groupId>-->
+<!--			<artifactId>springfox-swagger-ui</artifactId>-->
+<!--			<version>3.0.0</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.liquibase</groupId>-->
+<!--			<artifactId>liquibase-core</artifactId>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.ehcache</groupId>-->
+<!--			<artifactId>ehcache</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.mattbertolini</groupId>-->
+<!--			<artifactId>liquibase-slf4j</artifactId>-->
+<!--			<version>4.0.0</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct</artifactId>-->
+<!--			<version>${org.mapstruct.version}</version>-->
+<!--		</dependency>-->
+
+<!--	</dependencies>-->
+
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<excludes>-->
+<!--						<exclude>-->
+<!--							<groupId>org.projectlombok</groupId>-->
+<!--							<artifactId>lombok</artifactId>-->
+<!--						</exclude>-->
+<!--					</excludes>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
+
+<!--</project>-->

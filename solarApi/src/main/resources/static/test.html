@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Тег input, атрибут form</title>
+</head>
+
+<body>
+	<form id="data">
+		<label for="fname">First name:</label>
+		<input type="text" id="fname" name="fname"><br><br>
+		<label for="lname">Last name:</label>
+		<input type="text" id="lname" name="lname"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+	<p><input placeholder="Ваше имя" name="user" form="data"></p>
+	<p><input type="submit" value="Отправить форму" form="data"></p>
+
+	<a href="/dashboard.html">указатель ссылки</a>
+	<form action="/dashboard.html">
+		<button type="button" class="btn btn-primary btn-lg px-4 gap-3">Открыть дашборд</button>
+	</form>
+</body>
+
+</html>

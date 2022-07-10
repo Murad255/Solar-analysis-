@@ -1,0 +1,64 @@
+server:
+  port: 8081
+
+spring:
+  liquibase:
+    change-log: classpath:/db/changelog/changelog.xml
+  mvc:
+    format:
+      date: yyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    # url: jdbc:postgresql://localhost:5432/qsData2?currentSchema=public
+    # username: user1
+    # password: qsadmin
+    url: jdbc:postgresql://localhost:5432/solar?currentSchema=public
+    username: solar
+    password: solar
+    testOnBorrow: true
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: SELECT 1
+    max-active: 15
+    max-idle: 10
+    max-wait: 8000
+  jpa:
+    properties:
+      hibernate.default_schema: public
+    hibernate:
+      ddl-auto: update #validate # validate # When you launch the application for the first time - switch "none" at "create"
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: false
+
+#camunda.bpm.admin-user:
+#  id: demo
+#  password: demo
+#  first-name: firstDemo
+#  last-name: lastDemo
+#  email: info@reunico.com
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate: ERROR
+
+springdoc:
+  paths-to-exclude: /swagger-resources/**
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+
+image:
+  upload:
+    path: /home/serveriot/oil-api/img
