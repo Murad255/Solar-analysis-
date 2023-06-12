@@ -1,0 +1,12 @@
+xgboost
+keras
+tensorflow
+pandas
+matplotlib
+scipy
+scikit-learn
+lightgbm
+jupyter
+hyperopt
+ephem
+black

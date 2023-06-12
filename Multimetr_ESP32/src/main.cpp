@@ -5,24 +5,43 @@
 #include <HTTPClient.h>
 #include "ACS712.h"
 
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+
+#include <EEPROM.h>
+#include "SensorLogger.h"
+#include "WifiConnect.h"
+
 Adafruit_ADS1115 ads; /* Use this for the 16-bit version */
 // Adafruit_ADS1115 ads; /* Use this for the 12-bit version */
 
-const char *ssid = "4N1M63";                                //"Mi9T";
-const char *password = "Apshaga228";                        // "mi9tphone";
-const char *URL = "http://192.168.31.237:8081/SensorData/"; //"https://secure-woodland-61889.herokuapp.com/input";
+// Define NTP Client to get time
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP);
+
+
+ const char *ssid = "XXXXXXX";  //"APOLLO";                                //"Mi9T";
+ const char *password = "ZXC123456";                        // "mi9tphone";
+//const char *URL = "http://192.168.31.247:8081/SensorData/"; //"https://secure-woodland-61889.herokuapp.com/input";
+const char *URL = "http://185.68.21.22:8081/SensorData/"; //"https://secure-woodland-61889.herokuapp.com/input";
+
 const char *ContentType = "application/json";               //"text/plain";
 HTTPClient http;
 int16_t zero = 13336;
 
 void setup(void)
 {
+
+  SensorLogger::dPrintln("SensorLogger begin");
+  SensorLogger::begin();
+
+  char *SSID = SensorLogger::setings.Ssid;//&wifiSsid[0];
+  char *PASS = SensorLogger::setings.Pass;//&wifiPassword[0];
+
   Serial.begin(9600);
   Serial.println("Hello!");
-  WiFi.begin(ssid, password);
 
   ads.setGain(GAIN_TWOTHIRDS); // 2/3x gain +/- 6.144V  1 bit = 3mV      0.1875mV (default)
-  Serial.println("");
   Serial.println("");
 
   if (!ads.begin(0x48))
@@ -30,18 +49,34 @@ void setup(void)
     Serial.println("Failed to initialize ADS.");
   }
   Serial.print("Connecting to WiFi..");
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(1000);
-    Serial.print(".");
-  }
+
+    SensorLogger::dPrint("Connecting to ");
+    SensorLogger::dPrint(SSID);
+    SensorLogger::dPrint("...");
+
+    // char *SSID = &wifiSsid[0];
+    // char *PASS = &wifiPassword[0];
+
+    WiFi.begin(SSID, PASS);
+
+    if (WiFi.waitForConnectResult() != WL_CONNECTED)
+    {
+      SensorLogger::dPrintln("Connecting new");
+      connectSetings();
+    }
+    SensorLogger::dPrintln("Connected sucsesful");
+  
   Serial.println("#");
 
   Serial.println("Connected to the WiFi network");
 
   zero = ads.readADC_SingleEnded(0);
 
+  timeClient.begin();
+  timeClient.setTimeOffset(3600*3);
+
 }
+
 
 void loop()
 {
@@ -49,7 +84,6 @@ void loop()
   /* Be sure to update this value based on the IC and the gain settings! */
   // float multiplier = 3.0F; /* ADS1015 @ +/- 6.144V gain (12-bit results) */
   float multiplier = 0.1875F; /* ADS1115  @ +/- 6.144V gain (16-bit results) */
-
 
   int32_t resultsI, sumI=0;
   int32_t resultsV,sumV=0;
@@ -66,7 +100,12 @@ void loop()
 	float I = (float)(sumI) *1.25;/// 1.0 / 65536.0 * 500.0 / 0.132;
 	float V = (float)(sumV)  * multiplier*7*1.011;
 
-  Serial.print("I = " + String(resultsI) + "(" + String(I) + "I)\t");
+  timeClient.update();
+    // We need to extract date and time
+  String time = timeClient.getFormattedTime();///   getFormattedDate();
+  unsigned long data = timeClient.getEpochTime() ;///   getFormattedDate();
+
+  Serial.print("Time: "+time+"\tdata = "+String(data)+"\tI = " + String(resultsI) + "(" + String(I) + "I)\t");
   Serial.println("V = " + String(resultsV) + "(" + String(V) + "V)\t");
 
   // out += "V:" + String(results * multiplier);
@@ -74,17 +113,17 @@ void loop()
       \"cleanI\": "+String(resultsI)+",\
       \"cleanV\": "+String(resultsV)+",\
       \"normalA\": "+String(I)+",\
-      \"normalV\": "+String(V)+"\
+      \"normalV\": "+String(V)+",\
+      \"time\": \""+time+"\",\
+  \"timestamp\": "+String(data)+"\
   }";
 
   //  \"id\": 3,
 
-  //отправка данных put запросом
+ // отправка данных put запросом
   if (WiFi.status() == WL_CONNECTED)
   {
-
     HTTPClient http;
-
     http.begin(URL);
     http.addHeader("Content-Type",ContentType);
 
@@ -93,26 +132,22 @@ void loop()
 
     if (httpResponseCode > 0)
     {
-
       String response = http.getString();
-
       Serial.println(httpResponseCode);
       Serial.println(response);
     }
     else
     {
-
       Serial.print("Error on sending PUT Request: ");
       Serial.println(httpResponseCode);
     }
-
     http.end();
   }
   else
   {
     Serial.println("Error in WiFi connection");
+    connectSetings();
   }
-  delay(1000);
-
+  delay(9000);
 
 }

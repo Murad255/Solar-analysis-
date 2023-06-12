@@ -1,0 +1,169 @@
+2022-07-30 20:20:12,378 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 11.0.12 on ROG-ZEPHYRUS with PID 20684 (D:\GoogleDisk\Main\PROGECT\Solar\solarApi\target\classes started by murad in D:\GoogleDisk\Main\PROGECT\Solar\solarApi)
+2022-07-30 20:20:12,386 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-07-30 20:20:14,166 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:20:14,171 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-30 20:20:14,236 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,239 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,241 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,250 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.domain.repo.SensorDataRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,252 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,254 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,255 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:20:14,257 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 76 ms. Found 0 JDBC repository interfaces.
+2022-07-30 20:20:14,280 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:20:14,284 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-30 20:20:14,396 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'carRepo' defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot register bean definition [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration] for bean 'carRepo': There is already [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration] bound.
+2022-07-30 20:20:14,433 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-30 20:20:14,477 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'carRepo', defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration, could not be registered. A bean with that name has already been defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2022-07-30 20:24:25,503 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 11.0.12 on ROG-ZEPHYRUS with PID 2828 (D:\GoogleDisk\Main\PROGECT\Solar\solarApi\target\classes started by murad in D:\GoogleDisk\Main\PROGECT\Solar\solarApi)
+2022-07-30 20:24:25,509 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-07-30 20:24:27,345 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:24:27,349 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-30 20:24:27,437 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,440 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,444 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,456 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.domain.repo.SensorDataRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,459 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,461 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,463 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:24:27,466 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 103 ms. Found 0 JDBC repository interfaces.
+2022-07-30 20:24:27,497 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:24:27,502 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-30 20:24:27,610 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'carRepo' defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot register bean definition [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration] for bean 'carRepo': There is already [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration] bound.
+2022-07-30 20:24:27,654 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-30 20:24:27,701 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'carRepo', defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration, could not be registered. A bean with that name has already been defined in com.solar.api.springTest.CarRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2022-07-30 20:28:01,064 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 11.0.12 on ROG-ZEPHYRUS with PID 5868 (D:\GoogleDisk\Main\PROGECT\Solar\solarApi\target\classes started by murad in D:\GoogleDisk\Main\PROGECT\Solar\solarApi)
+2022-07-30 20:28:01,064 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-07-30 20:28:02,937 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:28:02,940 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-30 20:28:03,006 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.domain.repo.SensorDataRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:28:03,010 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:28:03,013 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:28:03,016 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:28:03,018 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 67 ms. Found 0 JDBC repository interfaces.
+2022-07-30 20:28:03,047 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:28:03,051 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-30 20:28:03,135 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
+2022-07-30 20:28:03,620 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=6f1a01e2-4325-374a-b91a-045d97a7d75d
+2022-07-30 20:28:05,062 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8081 (http)
+2022-07-30 20:28:05,092 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:28:05,094 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-07-30 20:28:05,094 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-07-30 20:28:05,413 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-07-30 20:28:05,414 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4195 ms
+2022-07-30 20:28:05,689 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-07-30 20:28:06,206 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-07-30 20:28:07,063 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:28:07,585 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Reading from public.databasechangelog
+2022-07-30 20:28:07,632 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:28:07,641 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:28:07,643 WARN com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Skipping auto-registration
+2022-07-30 20:28:07,652 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:28:11,008 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:28:12,428 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-07-30 20:28:15,098 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:28:15,150 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-30 20:28:15,701 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 16.977 seconds (JVM running for 18.347)
+2022-07-30 20:29:36,693 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:29:36,708 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-07-30 20:29:36,725 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-07-30 20:29:56,098 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestApplication using Java 11.0.12 on ROG-ZEPHYRUS with PID 9024 (D:\GoogleDisk\Main\PROGECT\Solar\solarApi\target\classes started by murad in D:\GoogleDisk\Main\PROGECT\Solar\solarApi)
+2022-07-30 20:29:56,107 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-07-30 20:29:57,935 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:29:57,935 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-30 20:29:58,008 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.domain.repo.SensorDataRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:29:58,010 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:29:58,013 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:29:58,016 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:29:58,018 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 68 ms. Found 0 JDBC repository interfaces.
+2022-07-30 20:29:58,034 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:29:58,042 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-30 20:29:58,117 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+2022-07-30 20:29:58,535 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=6f1a01e2-4325-374a-b91a-045d97a7d75d
+2022-07-30 20:29:59,936 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8081 (http)
+2022-07-30 20:29:59,959 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:29:59,960 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-07-30 20:29:59,961 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-07-30 20:30:00,338 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-07-30 20:30:00,338 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4114 ms
+2022-07-30 20:30:00,646 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-07-30 20:30:01,160 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-07-30 20:30:02,021 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:30:02,607 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Reading from public.databasechangelog
+2022-07-30 20:30:02,655 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:30:02,664 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:30:02,666 WARN com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Skipping auto-registration
+2022-07-30 20:30:02,676 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:30:05,828 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:30:07,249 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-07-30 20:30:09,552 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:30:09,612 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-30 20:30:10,182 INFO org.springframework.boot.StartupInfoLogger [main] Started TestApplication in 16.28 seconds (JVM running for 17.633)
+2022-07-30 20:31:56,743 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:31:56,751 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-07-30 20:31:56,768 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-07-30 20:32:48,284 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestApplication using Java 11.0.12 on ROG-ZEPHYRUS with PID 10540 (D:\GoogleDisk\Main\PROGECT\Solar\solarApi\target\classes started by murad in D:\GoogleDisk\Main\PROGECT\Solar\solarApi)
+2022-07-30 20:32:48,293 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-07-30 20:32:50,190 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:32:50,195 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-30 20:32:50,267 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.domain.repo.SensorDataRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:32:50,271 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CarRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:32:50,274 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.CatRepos. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:32:50,277 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.solar.api.springTest.PersonRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-07-30 20:32:50,279 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 74 ms. Found 0 JDBC repository interfaces.
+2022-07-30 20:32:50,308 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-30 20:32:50,311 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-30 20:32:50,390 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
+2022-07-30 20:32:50,833 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=6f1a01e2-4325-374a-b91a-045d97a7d75d
+2022-07-30 20:32:52,209 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8081 (http)
+2022-07-30 20:32:52,231 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:32:52,232 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-07-30 20:32:52,233 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-07-30 20:32:52,541 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-07-30 20:32:52,542 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4112 ms
+2022-07-30 20:32:52,856 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-07-30 20:32:53,360 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-07-30 20:32:54,332 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:32:54,872 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Reading from public.databasechangelog
+2022-07-30 20:32:54,925 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:32:54,935 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully acquired change log lock
+2022-07-30 20:32:54,937 WARN com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Skipping auto-registration
+2022-07-30 20:32:54,947 INFO com.mattbertolini.liquibase.logging.slf4j.Slf4jLogger [main] Successfully released change log lock
+2022-07-30 20:32:58,042 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:32:59,458 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [main] Adding welcome page: class path resource [static/index.html]
+2022-07-30 20:33:02,010 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8081"]
+2022-07-30 20:33:02,066 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-30 20:33:02,806 INFO org.springframework.boot.StartupInfoLogger [main] Started TestApplication in 16.643 seconds (JVM running for 18.009)
+2022-07-30 20:35:20,279 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-30 20:35:20,285 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-07-30 20:35:20,301 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
