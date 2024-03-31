@@ -3,7 +3,7 @@
 #include <EEPROM.h>
 #include <Preferences.h>
 //#include "esp32-hal-ledc.h"
-#define DEBUG
+// #define DEBUG
 namespace SensorLogger
 {
 
@@ -52,7 +52,7 @@ namespace SensorLogger
 	{
 		//	DimmableLightLinearized::setSyncPin(ZcPin);
 		//	DimmableLightLinearized::begin();
-		Serial.begin(9600);
+		// Serial.begin(115200);
 		dPrintln("SensorLogger begin");
 
 		// pinMode(Pins[0], OUTPUT);
@@ -65,8 +65,8 @@ namespace SensorLogger
 
 		//EEPROM.begin(sizeof(DeviceSetings));
 		//EEPROM.get(0, setings);
-		// prefs.begin("DeviceName", false);
-		// prefs.begin("SpaceName", false);
+		prefs.begin("DeviceName", false);
+		prefs.begin("SpaceName", false);
 		// prefs.begin("bright", false);
 		// prefs.begin("speed", false);
 		// prefs.begin("timout", false);
@@ -74,8 +74,8 @@ namespace SensorLogger
 		prefs.begin("Ssid", false);
 		prefs.begin("Pass", false);
 
-		// prefs.getBytes("DeviceName", setings.DeviceName, sizeof(setings.DeviceName));
-		// prefs.getBytes("SpaceName", setings.SpaceName, sizeof(setings.SpaceName));
+		prefs.getBytes("DeviceName", setings.DeviceName, sizeof(setings.DeviceName));
+		prefs.getBytes("SpaceName", setings.SpaceName, sizeof(setings.SpaceName));
 		prefs.getBytes("Ssid", setings.Ssid, sizeof(setings.Ssid));
 		prefs.getBytes("Pass", setings.Pass, sizeof(setings.Pass));
 		// setBright(prefs.getInt("bright"),false);
@@ -86,8 +86,8 @@ namespace SensorLogger
 		prefs.end();
 
 		dPrintln("setings:");
-		// dPrintln("name: " + String(setings.DeviceName));
-		// dPrintln("groop: " + String(setings.SpaceName));
+		dPrintln("name: " + String(setings.DeviceName));
+		dPrintln("groop: " + String(setings.SpaceName));
 		dPrintln("Ssid: " + String(setings.Ssid));
 		dPrintln("pass: " + String(setings.Pass));
 		// dPrintln("sped: " + String(setings.speed));
@@ -104,8 +104,8 @@ namespace SensorLogger
 	void SaveSetings()
 	{
 		//EEPROM.put(0, setings);
-		// prefs.begin("DeviceName", false);
-		// prefs.begin("SpaceName", false);
+		 prefs.begin("DeviceName", false);
+		prefs.begin("SpaceName", false);
 		// prefs.begin("bright", false);
 		// prefs.begin("speed", false);
 		// prefs.begin("timout", false);
@@ -113,8 +113,10 @@ namespace SensorLogger
 		prefs.begin("Ssid", false);
 		prefs.begin("Pass", false);
 
-		// prefs.putBytes("DeviceName", setings.DeviceName, sizeof(setings.DeviceName));
-		// prefs.putBytes("SpaceName", setings.SpaceName, sizeof(setings.SpaceName));
+		prefs.putBytes("DeviceName", setings.DeviceName, sizeof(setings.DeviceName));
+		Serial.print("Save SpaceName = ");
+		Serial.println(setings.SpaceName);
+		 prefs.putBytes("SpaceName", setings.SpaceName, sizeof(setings.SpaceName));
 		// prefs.putInt("bright", setings.bright);
 		// prefs.putInt("speed", setings.speed);
 		prefs.putBytes("Ssid", setings.Ssid, sizeof(setings.Ssid));
