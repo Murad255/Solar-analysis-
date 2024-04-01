@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#define DEBUG
+
 #include <SPI.h>
 #include <Adafruit_ADS1X15.h>
 #include <WiFi.h>
@@ -13,7 +15,6 @@
 #include <EEPROM.h>
 #include "SensorLogger.h"
 #include "WifiConnect.h"
-
 // Adafruit_ADS1115 ads; /* Use this for the 16-bit version */
 Adafruit_MPU6050 mpu;
 
@@ -27,6 +28,15 @@ HTTPClient http;
 int16_t zero = 13336;
 float an_past;
 String getMpuData();
+void Task1code(void *pvParameters);
+void Task2code(void *pvParameters);
+
+void dPrintln(String message)
+	{
+#ifdef DEBUG
+		Serial.println(message);
+#endif
+	}
 
 void setup(void)
 {
@@ -100,57 +110,142 @@ void setup(void)
 
   timeClient.begin();
   timeClient.setTimeOffset(3600 * 3);
+
+  xTaskCreatePinnedToCore(Task1code, "Task1", 10000, NULL, 1, NULL, 0);
+  delay(50);
+  xTaskCreatePinnedToCore(Task2code, "Task2", 10000, NULL, 1, NULL, 1);
+  delay(50);
 }
 
-void loop()
+String out = "";
+volatile boolean outWrite = false;
+
+void Task1code(void *pvParameters)
 {
-  String out = "[" + getMpuData();
-
-  for (int i = 0; i < 50; i++)
+  Serial.println("Task1 running on core ");
+  for (;;)
   {
-    out += ",";
-    out += getMpuData();
-    delay(20);
+    outWrite = true;
+    out += ("," + getMpuData());
+    outWrite = false;
+    delay(50);
+    // for (int i = 0; i < 50; i++)
+    // {
+    //   out += ",";
+    //   out += getMpuData();
+    //   delay(20);
+    // }
+    // out += "]";
+    // out.replace("      ","");
   }
-  out += "]";
-  out.replace("      ","");
-  //  \"id\": 3,
+}
 
-  // отправка данных put запросом
-  if (out.length() > 1)
-    if (WiFi.status() == WL_CONNECTED)
+void Task2code(void *pvParameters)
+{
+  Serial.println("Task2 running on core ");
+  for (;;)
+  {
+    // отправка данных put запросом
+    if (out.length() > 1)
     {
-      HTTPClient http;
-#ifdef DEBUG
-      Serial.print("Sent to ");
-      Serial.println("http://" + String(SensorLogger::setings.SpaceName) + "  " + out);
-#endif
-      http.begin("http://" + String(SensorLogger::setings.SpaceName));
-      http.addHeader("Content-Type", ContentType);
-
-      // int httpResponseCode = http.PUT("PUT sent from ESP32");
-      int httpResponseCode = http.POST(out);
-
-      if (httpResponseCode > 0)
+      if (WiFi.status() == WL_CONNECTED)
       {
-        // String response = http.getString();
-        // Serial.println(httpResponseCode);
-        // Serial.println(response);
+        while (outWrite)
+        {
+          dPrintln("outWrite");
+          delay(5);
+        }
+        String tempData = out;
+        out = "";
+        tempData[0] = '[';
+        tempData += "]";
+
+        HTTPClient http;
+        dPrintln("Sent to http://" + String(SensorLogger::setings.SpaceName) + "  " + tempData);
+        http.begin("http://" + String(SensorLogger::setings.SpaceName));
+        http.addHeader("Content-Type", ContentType);
+
+        // int httpResponseCode = http.PUT("PUT sent from ESP32");
+        int httpResponseCode = http.POST(tempData);
+
+        if (httpResponseCode > 0)
+        {
+          // String response = http.getString();
+          // Serial.println(httpResponseCode);
+          // Serial.println(response);
+        }
+        else
+        {
+          Serial.print("Error on sending PUT Request: ");
+          Serial.println(httpResponseCode);
+        }
+        http.end();
       }
       else
       {
-        Serial.print("Error on sending PUT Request: ");
-        Serial.println(httpResponseCode);
+        Serial.println("Error in WiFi connection");
+        connectSetings();
       }
-      http.end();
     }
     else
     {
-      Serial.println("Error in WiFi connection");
-      connectSetings();
+      dPrintln("out = 0" );
     }
-  // delay(100);
+  }
 }
+void loop()
+{
+}
+
+// void loop()
+// {
+//   String out = "[" + getMpuData();
+
+//   for (int i = 0; i < 50; i++)
+//   {
+//     out += ",";
+//     out += getMpuData();
+//     delay(20);
+//   }
+//   out += "]";
+//   out.replace("      ","");
+//   //  \"id\": 3,
+
+//   // отправка данных put запросом
+//   if (out.length() > 1)
+//     if (WiFi.status() == WL_CONNECTED)
+//     {
+//       HTTPClient http;
+// #ifdef DEBUG
+//       Serial.print("Sent to ");
+//       Serial.println("http://" + String(SensorLogger::setings.SpaceName) + "  " + out);
+// #endif
+//       http.begin("http://" + String(SensorLogger::setings.SpaceName));
+//       http.addHeader("Content-Type", ContentType);
+
+//       // int httpResponseCode = http.PUT("PUT sent from ESP32");
+//       int httpResponseCode = http.POST(out);
+
+//       if (httpResponseCode > 0)
+//       {
+//         // String response = http.getString();
+//         // Serial.println(httpResponseCode);
+//         // Serial.println(response);
+//       }
+//       else
+//       {
+//         Serial.print("Error on sending PUT Request: ");
+//         Serial.println(httpResponseCode);
+//       }
+//       http.end();
+//     }
+//     else
+//     {
+//       Serial.println("Error in WiFi connection");
+//       connectSetings();
+//     }
+//   // delay(100);
+// }
 
 // String getAdsData()
 // {
@@ -217,7 +312,7 @@ String getMpuData()
   float an = sqrt(ax * ax + ay * ay + az * az);
   float da = an_past - an;
   an_past = an;
-
+  dPrintln(" da = " + String(da));
   timeClient.update();
   String time = timeClient.getFormattedTime();
   unsigned long data = timeClient.getEpochTime();
